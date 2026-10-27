@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daybreak Coffee | Small-batch coffee &amp; fresh pastries</title>
+<meta name="description" content="Daybreak Coffee is a neighbourhood café serving small-batch espresso, filter coffee and fresh pastries every day.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#1d3b2f;
+  --green-2:#2b5543;
+  --chalk:#f5f5f0;
+  --paper:#ffffff;
+  --ink:#1a1f1c;
+  --muted:#5d6661;
+  --cherry:#c4372c;
+  --line:#dcdcd3;
+  --head:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --max:1120px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;font-family:var(--body);font-size:1.0625rem;line-height:1.6;color:var(--ink);background:var(--chalk);-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--head);line-height:1.1;margin:0;letter-spacing:-.02em}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--cherry);outline-offset:3px;border-radius:4px}
+.wrap{width:min(100% - 2.5rem,var(--max));margin-inline:auto}
+section{padding:clamp(3.5rem,8vw,6.5rem) 0}
+.btn{display:inline-block;padding:.85rem 1.5rem;border-radius:999px;background:var(--cherry);color:#fff;font-weight:600;text-decoration:none;border:2px solid var(--cherry);transition:background .2s,color .2s}
+.btn:hover{background:#a82c22;border-color:#a82c22}
+.btn.ghost{background:transparent;color:inherit;border-color:currentColor}
+.btn.ghost:hover{background:var(--ink);border-color:var(--ink);color:#fff}
+
+/* Header */
+header{position:sticky;top:0;z-index:20;background:var(--green);color:#fff}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--head);font-weight:800;font-size:1.35rem;text-decoration:none;letter-spacing:-.02em}
+.logo span{color:#f0a79f}
+nav ul{display:flex;gap:1.75rem;list-style:none;margin:0;padding:0}
+nav a{text-decoration:none;font-weight:500;padding:.25rem 0;border-bottom:2px solid transparent}
+nav a:hover{border-color:#f0a79f}
+.toggle{display:none;background:none;border:0;color:#fff;padding:.5rem;cursor:pointer}
+.toggle svg{display:block}
+@media (max-width:760px){
+  .toggle{display:block}
+  nav{position:absolute;left:0;right:0;top:64px;background:var(--green);max-height:0;overflow:hidden;transition:max-height .3s}
+  nav.open{max-height:320px;border-top:1px solid rgba(255,255,255,.15)}
+  nav ul{flex-direction:column;gap:0;padding:.5rem 1.25rem 1.25rem}
+  nav a{display:block;padding:.85rem 0;font-size:1.1rem}
+}
+
+/* Hero */
+.hero{background:var(--green);color:#fff;padding:clamp(3rem,8vw,6rem) 0 clamp(3.5rem,9vw,7rem)}
+.hero .wrap{display:grid;gap:3rem;grid-template-columns:1.2fr .8fr;align-items:center}
+.hero h1{font-size:clamp(2.75rem,8vw,5.5rem);font-weight:800}
+.hero p{margin:1.5rem 0 2rem;font-size:1.2rem;max-width:34ch;color:#d4e0d9}
+.hero .actions{display:flex;flex-wrap:wrap;gap:.75rem}
+.hero .btn.ghost:hover{background:#fff;border-color:#fff;color:var(--green)}
+.board{background:var(--chalk);color:var(--ink);border-radius:20px;padding:1.75rem;transform:rotate(1.5deg);box-shadow:0 18px 40px rgba(0,0,0,.25)}
+.board h2{font-size:1.3rem;margin-bottom:.25rem}
+.board small{color:var(--muted)}
+.board ul{list-style:none;margin:1.25rem 0 0;padding:0}
+.board li{display:flex;justify-content:space-between;gap:1rem;padding:.7rem 0;border-top:1px dashed #b9bcb2;font-weight:500}
+.board li span:last-child{color:var(--cherry);font-weight:600}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.board{transform:none}}
+
+/* Menu */
+.head{max-width:60ch;margin-bottom:2rem}
+.head h2{font-size:clamp(2rem,5vw,3rem);margin-bottom:.75rem}
+.head p{color:var(--muted)}
+.tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2rem}
+.tabs button{font:inherit;font-weight:600;padding:.6rem 1.2rem;border-radius:999px;border:2px solid var(--green);background:transparent;color:var(--green);cursor:pointer;transition:background .2s,color .2s}
+.tabs button[aria-selected="true"]{background:var(--green);color:#fff}
+.items{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:1rem 3rem}
+.item{padding:1rem 0;border-bottom:1px solid var(--line)}
+.item div{display:flex;justify-content:space-between;gap:1rem;align-items:baseline}
+.item h3{font-size:1.2rem}
+.item b{color:var(--cherry);font-weight:600}
+.item p{color:var(--muted);font-size:.98rem;margin-top:.25rem}
+
+/* About */
+.about{background:var(--paper)}
+.about .wrap{display:grid;gap:3rem;grid-template-columns:1fr 1fr;align-items:start}
+.about h2{font-size:clamp(2rem,5vw,3rem)}
+.about p+p{margin-top:1rem}
+.about p{color:var(--muted)}
+.facts{display:grid;gap:1rem}
+.fact{padding:1.25rem 1.5rem;border-left:5px solid var(--cherry);background:var(--chalk);border-radius:0 12px 12px 0}
+.fact h3{font-size:1.15rem;margin-bottom:.2rem}
+.fact p{font-size:.98rem}
+@media (max-width:760px){.about .wrap{grid-template-columns:1fr;gap:2rem}}
+
+/* Visit */
+.visit .wrap{display:grid;gap:3rem;grid-template-columns:1fr 1fr}
+.visit h2{font-size:clamp(2rem,5vw,3rem);margin-bottom:1.25rem}
+.hours{list-style:none;margin:0;padding:0;max-width:380px}
+.hours li{display:flex;justify-content:space-between;padding:.65rem 0;border-bottom:1px solid var(--line)}
+.hours li.today{font-weight:600;color:var(--cherry)}
+address{font-style:normal;margin-bottom:1.25rem}
+.visit .links{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.5rem}
+.visit .links a{width:fit-content}
+@media (max-width:760px){.visit .wrap{grid-template-columns:1fr;gap:2.5rem}}
+
+footer{background:var(--green);color:#cfdad3;padding:2rem 0;font-size:.95rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:.75rem 2rem;justify-content:space-between}
+footer a{text-underline-offset:3px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="logo" href="#top">Daybreak<span>.</span></a>
+    <button class="toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav id="nav" aria-label="Main">
+      <ul>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#visit">Visit</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Good coffee, made slowly.</h1>
+        <p>Small-batch espresso, filter coffee and pastries baked every morning.</p>
+        <div class="actions">
+          <a class="btn" href="#menu">See the menu</a>
+          <a class="btn ghost" href="#visit">Find us</a>
+        </div>
+      </div>
+      <aside class="board" aria-label="Today's specials">
+        <h2>Today's board</h2>
+        <small>Fresh from the bar</small>
+        <ul>
+          <li><span>Single-origin pour-over</span><span>$4.50</span></li>
+          <li><span>Cortado</span><span>$3.75</span></li>
+          <li><span>Cardamom bun</span><span>$3.25</span></li>
+          <li><span>Cold brew</span><span>$4.25</span></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+
+  <section id="menu">
+    <div class="wrap">
+      <div class="head">
+        <h2>Menu</h2>
+        <p>Everything is made to order. Ask us about oat, almond or whole milk.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Menu categories"></div>
+      <div class="items" id="items" role="tabpanel" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="wrap">
+      <div>
+        <h2>A neighbourhood café with a simple idea</h2>
+        <p>We opened Daybreak to make a good cup of coffee part of an ordinary morning. We buy from small farms, roast in small batches and bake our pastries before we open the doors.</p>
+        <p>Stay for a while, bring a book, or take your coffee to go. Either way, you are welcome here.</p>
+      </div>
+      <div class="facts">
+        <div class="fact"><h3>Roasted weekly</h3><p>Beans arrive fresh and are used within two weeks of roasting.</p></div>
+        <div class="fact"><h3>Baked daily</h3><p>Pastries and bread come out of the oven each morning.</p></div>
+        <div class="fact"><h3>Free Wi-Fi</h3><p>Plenty of seats and power sockets for working or studying.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="visit" class="visit">
+    <div class="wrap">
+      <div>
+        <h2>Opening hours</h2>
+        <ul class="hours" id="hours"></ul>
+      </div>
+      <div>
+        <h2>Find us</h2>
+        <address>12 Market Street<br>Your City, 00000</address>
+        <div class="links">
+          <a href="tel:+10000000000">(000) 000-0000</a>
+          <a href="mailto:hello@daybreakcoffee.com">hello@daybreakcoffee.com</a>
+        </div>
+        <a class="btn" href="https://maps.google.com/?q=12+Market+Street" target="_blank" rel="noopener">Get directions</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year"></span> Daybreak Coffee</span>
+    <a href="#top">Back to top</a>
+  </div>
+</footer>
+
+<script>
+// ---- Edit your menu here ----
+const MENU = {
+  "Coffee": [
+    ["Espresso", "Rich and concentrated, our house blend.", "3.00"],
+    ["Americano", "Espresso topped with hot water.", "3.50"],
+    ["Cappuccino", "Equal parts espresso, steamed milk and foam.", "4.00"],
+    ["Latte", "Smooth and milky with a light layer of foam.", "4.25"],
+    ["Pour-over", "Single-origin filter coffee, brewed by hand.", "4.50"],
+    ["Cold brew", "Steeped for 18 hours and served over ice.", "4.25"]
+  ],
+  "Not coffee": [
+    ["Hot chocolate", "Dark chocolate and steamed milk.", "4.00"],
+    ["Chai latte", "Spiced black tea with steamed milk.", "4.25"],
+    ["Matcha latte", "Ceremonial-grade matcha, whisked to order.", "4.75"],
+    ["Fresh orange juice", "Squeezed when you order.", "4.00"]
+  ],
+  "Pastries": [
+    ["Butter croissant", "Flaky, golden and baked every morning.", "3.25"],
+    ["Cardamom bun", "Soft, sweet and lightly spiced.", "3.25"],
+    ["Banana bread", "Moist, with toasted walnuts.", "3.50"],
+    ["Avocado toast", "Sourdough, lemon, chilli flakes.", "7.50"]
+  ]
+};
+// ---- Edit your opening hours here (Sunday first) ----
+const HOURS = [
+  ["Sunday","8:00 – 16:00"],["Monday","7:00 – 18:00"],["Tuesday","7:00 – 18:00"],
+  ["Wednesday","7:00 – 18:00"],["Thursday","7:00 – 18:00"],["Friday","7:00 – 19:00"],["Saturday","8:00 – 19:00"]
+];
+
+// Menu tabs
+const tabs = document.querySelector(".tabs"), items = document.getElementById("items");
+function show(cat){
+  items.innerHTML = MENU[cat].map(([n,d,p]) =>
+    `<div class="item"><div><h3>${n}</h3><b>$${p}</b></div><p>${d}</p></div>`).join("");
+  tabs.querySelectorAll("button").forEach(b => b.setAttribute("aria-selected", b.dataset.cat === cat));
+}
+Object.keys(MENU).forEach(cat => {
+  const b = document.createElement("button");
+  b.textContent = cat; b.dataset.cat = cat; b.setAttribute("role","tab");
+  b.addEventListener("click", () => show(cat));
+  tabs.appendChild(b);
+});
+show(Object.keys(MENU)[0]);
+
+// Opening hours with today highlighted
+const today = new Date().getDay();
+document.getElementById("hours").innerHTML = HOURS.map(([d,h],i) =>
+  `<li${i===today?' class="today"':''}><span>${d}</span><span>${h}</span></li>`).join("");
+
+// Mobile nav
+const toggle = document.querySelector(".toggle"), nav = document.getElementById("nav");
+toggle.addEventListener("click", () => {
+  const open = nav.classList.toggle("open");
+  toggle.setAttribute("aria-expanded", open);
+});
+nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+  nav.classList.remove("open"); toggle.setAttribute("aria-expanded", false);
+}));
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
